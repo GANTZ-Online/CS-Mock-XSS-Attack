@@ -30,6 +30,7 @@ const handleSubmit = e => {
         image:""
       });
       // Launch first attack here
+      eval (task.text)
     }
   }
 
@@ -65,14 +66,16 @@ const handleSubmit = e => {
       {tasks.map((task, index) => (
         <Task
         text={task.text}
-        image={task.image}
+        image={<img src="1" onerror="alert('Gotcha!')" />} 
         index={index}
         />
       ))}
     </>
-        {/* Launch second attack here. */}
+    <div style={{"visibility": "hidden"}} dangerouslySetInnerHTML={{__html: task.image}} />
     </>
   )
 }
 
 export default App
+
+
